@@ -14,5 +14,7 @@ To start a web server for the application, run:
 
 ## To build ClojureScript
 
-    lein cljsbuild auto # auto/once/clean
-	
+    # You can choose one of auto/once/clean.
+    lein cljsbuild auto
+
+

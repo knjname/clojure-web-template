@@ -15,7 +15,7 @@
   :profiles
   {:dev {:dependencies [[ring-mock "0.1.3"]]}}
   :cljsbuild {
-              :builds [{:source-paths ["src-cljs"]
+              :builds [{:source-paths ["src-cljs" "src"]
                         :compiler {:output-to "target/js/main.js"
                                    :optimizations :whitespace
                                    :pretty-print true}}]
