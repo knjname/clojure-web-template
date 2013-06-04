@@ -1,7 +1,5 @@
 # clojure-web-pj
 
-FIXME
-
 ## Prerequisites
 
 You will need [Leiningen][1] 1.7.0 or above installed.
@@ -14,6 +12,7 @@ To start a web server for the application, run:
 
     lein ring server
 
-## License
+## To build ClojureScript
 
-Copyright © 2013 FIXME
+    lein cljsbuild auto # auto/once/clean
+	
