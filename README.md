@@ -28,3 +28,9 @@ To start a web server for the application, run:
 
     # This compiles all *.groovy sources located on /src/main/groovy.
 	lein groovyc 
+
+	
+### build Scala
+
+    # This compiles all *.scala sources located on /src/main/scala.
+	lein scalac 
