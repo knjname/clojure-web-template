@@ -12,9 +12,16 @@ To start a web server for the application, run:
 
     lein ring server
 
-## To build ClojureScript
+## How to ...
+
+### build ClojureScript
 
     # You can choose one of auto/once/clean.
     lein cljsbuild auto
 
+### build Java
+
+    # This compiles all *.java sources located on /src/main/java.
+    lein javac
+	
 
