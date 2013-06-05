@@ -24,4 +24,7 @@ To start a web server for the application, run:
     # This compiles all *.java sources located on /src/main/java.
     lein javac
 	
+### build Groovy
 
+    # This compiles all *.groovy sources located on /src/main/groovy.
+	lein groovyc 
