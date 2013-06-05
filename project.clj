@@ -20,16 +20,21 @@
                  [lib-noir "0.5.2"]     ; Web libs
                  [org.clojure/clojurescript "0.0-1806"] ; Clojure on JavaScript
                  [org.codehaus.groovy/groovy-all "2.1.4"]  ; Groovy, however rarely we'd like to use this.
+                 [org.scala-lang/scala-library "2.9.1"]   ; Scala.
                  ]
 
   ;; You can access variable defined out of defproject with ~(unquote).
   :java-source-paths ~java-source-paths
   ;; You can also access function defined out of defproject.
   :source-paths [~(src-path "clj")]
+  ;; Groovy source path
   :groovy-source-paths ["src/main/groovy"]
+  ;; Scala source path (not path`s')
+  :scala-source-path "src/main/scala"
   :plugins [[lein-ring "0.8.5"]
             [lein-cljsbuild "0.3.2"]    ; When you want to use CLojureScript.
             [lein-groovyc "0.2.1"]      ; When you want to use Groovy.
+            [lein-scalac "0.1.0"]       ; When you want to use Scala.
             ]
   :ring {:handler clojure-web-pj.handler/app}
   :profiles
