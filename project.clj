@@ -2,9 +2,6 @@
 ;;; You can see example which covers widely our desires at:
 ;;; https://github.com/technomancy/leiningen/blob/stable/sample.project.clj
 
-(defn src [lang]
-  (str "src/main/" lang))
-
 (defproject clojure-web-pj "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
@@ -16,8 +13,8 @@
                  [lib-noir "0.5.2"]     ; Web libs
                  [org.clojure/clojurescript "0.0-1806"] ; Clojure on JavaScript
                  ]
-  :source-paths (src "clj")
-  :java-source-paths (src "java")
+  :source-paths "src/main/clj"
+  :java-source-paths "src/main/java"
   :plugins [[lein-ring "0.8.5"]
             [lein-cljsbuild "0.3.2"]]
   :ring {:handler clojure-web-pj.handler/app}
