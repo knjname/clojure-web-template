@@ -2,6 +2,11 @@
 ;;; You can see example which covers widely our desires at:
 ;;; https://github.com/technomancy/leiningen/blob/stable/sample.project.clj
 
+;; You can externalize variables.
+(def java-source-paths ["src/main/java"])
+
+;; Function is also supported
+
 (defproject clojure-web-pj "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
   :url "http://example.com/FIXME"
@@ -13,8 +18,8 @@
                  [lib-noir "0.5.2"]     ; Web libs
                  [org.clojure/clojurescript "0.0-1806"] ; Clojure on JavaScript
                  ]
-  :source-paths "src/main/clj"
-  :java-source-paths "src/main/java"
+  :source-paths ["src/main/clj"] 
+  :java-source-paths ~java-source-paths
   :plugins [[lein-ring "0.8.5"]
             [lein-cljsbuild "0.3.2"]]
   :ring {:handler clojure-web-pj.handler/app}
