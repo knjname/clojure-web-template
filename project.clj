@@ -6,6 +6,8 @@
 (def java-source-paths ["src/main/java"])
 
 ;; Function is also supported
+(defn src-path [lang]
+  (str "src/main/" lang))
 
 (defproject clojure-web-pj "0.1.0-SNAPSHOT"
   :description "FIXME: write description"
@@ -18,8 +20,11 @@
                  [lib-noir "0.5.2"]     ; Web libs
                  [org.clojure/clojurescript "0.0-1806"] ; Clojure on JavaScript
                  ]
-  :source-paths ["src/main/clj"] 
+
+  ;; You can access variable defined out of defproject with ~(unquote).
   :java-source-paths ~java-source-paths
+  ;; You can also access function defined out of defproject.
+  :source-paths [~(src-path "clj")] 
   :plugins [[lein-ring "0.8.5"]
             [lein-cljsbuild "0.3.2"]]
   :ring {:handler clojure-web-pj.handler/app}
