@@ -14,6 +14,7 @@
   :url "http://example.com/FIXME"
   :dependencies [[org.clojure/clojure "1.5.1"]         ; Language core
                  [org.clojure/clojure-contrib "1.2.0"] ; Utilities
+                 [org.clojure/tools.nrepl "0.2.3"]     ; REPL which can be REPL daemon
                  [compojure "1.1.5"]    ; URL<=>Function mappings
                  [ring "1.1.8"]         ; HTTP interface
                  [hiccup "1.0.3"]       ; HTML generator

@@ -3,7 +3,8 @@
         [ring.adapter.jetty]
         [ring.middleware stacktrace reload]
         [hiccup.core]
-        [hiccup.page])
+        [hiccup.page]
+        [clojure.tools.nrepl.server :only (start-server stop-server)])
   (:require [compojure.handler :as handler]
             [compojure.route :as route]))
 
@@ -22,14 +23,24 @@
       ;; for debugging.
       (wrap-stacktrace)))
 
+;;; Defs about web server's start/stop.
 (def svr (atom nil))
-
 (defn start-server
   "Start a web server."
   []
   (reset! svr
           (run-jetty #'app {:port 8080 :join? false})))
-
 (defn stop-server []
   (.stop @svr))
 
+
+;;; Defs about REPL's start/stop.
+(def repl-svr (atom nil))
+(defn start-repl-server []
+  "Start REPL server.
+To connect it, on Emacs, M-x nrepl => localaddress:8999."
+  (reset! repl-svr
+          (start-server :port 8999)))
+
+(defn stop-repl-server []
+  (stop-server @repl-svr))
