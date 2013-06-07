@@ -36,9 +36,10 @@
 
 ;;; Defs about REPL's start/stop.
 (def repl-svr (atom nil))
-(defn start-repl-server []
+(defn start-repl-server
   "Start REPL server.
 To connect it, on Emacs, M-x nrepl => localaddress:8999."
+  []
   (reset! repl-svr
           (start-server :port 8999)))
 
