@@ -23,8 +23,11 @@
                  [org.codehaus.groovy/groovy-all "2.1.4"] ; Groovy, however rarely we'd like to use this.
                  [org.scala-lang/scala-library "2.9.1"]   ; Scala.
                  ]
-  :plugins [[lein-ring "0.8.5"]
-            [lein-cljsbuild "0.3.2"]    ; When you want to use ClojureScript.
+  :plugins [
+            ;; "Automates common Ring tasks."
+            ;; https://github.com/weavejester/lein-ring/
+            [lein-ring "0.8.5"]
+            [lein-cljsbuild "0.3.2"] ; When you want to use ClojureScript.
             [lein-groovyc "0.2.1"]      ; When you want to use Groovy.
             [lein-scalac "0.1.0"]       ; When you want to use Scala.
             ]
@@ -37,7 +40,17 @@
   :groovy-source-paths ["src/main/groovy"]
   ;; Scala source path (not path`s')
   :scala-source-path "src/main/scala"
-  :ring {:handler clojure-web-pj.handler/app}
+  ;; Required by lein-ring plugin.
+  :ring {
+         :handler clojure-web-pj.handler/app
+         :reload-paths ["src/main/clj"]
+         :stacktraces? true
+         :auto-refresh? true
+         :port 3000
+         :nrepl {
+                 :start? true
+                 :port 7979
+                 }}
   :profiles
   {:dev {:dependencies [[ring-mock "0.1.3"]]}}
   :cljsbuild {
